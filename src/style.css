@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --my-offcanvas-open: offcanvas-open-animation 0.5s ease-out;
+    --my-offcanvas-close: offcanvas-close-animation 0.5s ease-in;
+    --my-editor-height: calc(100vh - 64px);
+}
+
+@keyframes offcanvas-open-animation {
+    from {
+        transform: translateX(-500px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+@keyframes offcanvas-close-animation {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-500px);
+    }
+}
