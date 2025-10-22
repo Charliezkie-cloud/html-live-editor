@@ -21,10 +21,15 @@ export default class HtmlEditor {
         }
 
         this.parentEl.innerHTML = `<section class="h-full">
-          <div class="grid grid-cols-2 h-full">
-            <div class="h-full w-full htmlEditor"></div>
-            <iframe class="h-full w-full htmlEditorOutput" sandbox="allow-same-origin allow-forms allow-scripts"></iframe>
-          </div>
+            <div class="dark:bg-stone-950 p-4" x-data>
+                <button type="button" x-on:click="if (confirm('This action will clear your current progress.')) resetSave()" class="relative bg-gray-200 dark:bg-stone-800 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-stone-700 active:bg-gray-400/50 dark:active:bg-stone-600/50 focus:outline-2 focus:outline-offset-2 focus:outline-gray-400 dark:focus:outline-stone-600 py-2 px-4 rounded-lg inline-flex items-center justify-center gap-2 text-sm">
+                    <i class="fa-solid fa-rotate-right"></i> Reset
+                </button>
+            </div>
+            <div class="grid grid-cols-2 h-full">
+                <div class="h-full w-full htmlEditor"></div>
+                <iframe class="h-full w-full htmlEditorOutput" sandbox="allow-same-origin allow-forms allow-scripts"></iframe>
+            </div>
         </section>`;
 
         self.MonacoEnvironment = {
@@ -86,5 +91,21 @@ export default class HtmlEditor {
             this.editor.dispose();
             this.parentEl.innerHTML = "";
         }
+    }
+
+    /**
+     * 
+     * @param {string} theme 
+     */
+    setTheme(theme) {
+        monaco.editor.setTheme(theme);
+    }
+
+    /**
+     * 
+     * @param {string} content 
+     */
+    setValue(content) {
+        this.editor?.setValue(content);
     }
 }

@@ -2,9 +2,28 @@
 <html lang="en" class="light">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>html-live-editor</title>
+    <title>HTML Live Editor | Charlzk</title>
+
+    <meta name="description" content="An interactive HTML Live Editor — write, preview, and experiment with HTML code instantly. Perfect for students and web developers." />
+    <meta name="keywords" content="HTML live editor, online code editor, HTML playground, live preview, web development tool" />
+    <meta name="author" content="HTML Live Editor Team" />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:title" content="HTML Live Editor" />
+    <meta property="og:description" content="Write and test HTML code in real time with this simple live editor." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://charliezkie-cloud.github.io/html-live-editor/" />
+    <meta property="og:image" content="https://charliezkie-cloud.github.io/html-live-editor/preview.png" />
+    <meta property="og:locale" content="en_PH" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="HTML Live Editor" />
+    <meta name="twitter:description" content="Try out HTML code instantly with this live editor." />
+    <meta name="twitter:image" content="https://charliezkie-cloud.github.io/html-live-editor/preview.png" />
+
+    <link rel="icon" type="image/svg+xml" href="/html.png" />
+
     <script src="https://kit.fontawesome.com/a9bae01479.js" crossorigin="anonymous"></script>
   </head>
   <body class="overflow-y-hidden">
@@ -14,9 +33,6 @@
       </header>
 
       <main class="h-(--my-editor-height)">
-        <section class="bg-white dark:bg-stone-950 p-4" x-data>
-          <button type="button" x-on:click="if (confirm('This action will clear your current progress.')) resetSave()" class="relative bg-gray-200 dark:bg-stone-800 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-stone-700 active:bg-gray-400/50 dark:active:bg-stone-600/50 focus:outline-2 focus:outline-offset-2 focus:outline-gray-400 dark:focus:outline-stone-600 py-2 px-4 rounded-lg inline-flex items-center justify-center gap-2 text-sm"><i class="fa-solid fa-rotate-right"></i> Reset</button>
-        </section>
         <div id="editorContainer" class="w-full h-full"></div>
       </main>
     </div>

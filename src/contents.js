@@ -10,8 +10,7 @@ new Navbar([
     }
 ], App.querySelector(".navContainer")).create();
 
-const isDark = localStorage.getItem("isDark");
-new HtmlEditor(`<!DOCTYPE html>
+const defaultHtmlCode = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,8 +19,6 @@ new HtmlEditor(`<!DOCTYPE html>
     <title>HTML Live Editor by Charles Henry M. Tinoy Jr.</title>
     <style>
         html, body {
-            background-color: ${isDark != "true" ? "white" : "oklch(26.8% 0.007 34.298)"};
-            color: ${isDark != "true" ? "oklch(26.8% 0.007 34.298)" : "white"};
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
     </style>
@@ -34,4 +31,8 @@ new HtmlEditor(`<!DOCTYPE html>
         document.querySelector("#red").style.color = "red";
     </script>
 </body>
-</html>`, App.querySelector("#editorContainer")).create();
+</html>`;
+const myEditor = new HtmlEditor(defaultHtmlCode, App.querySelector("#editorContainer"));
+myEditor.create();
+
+export { myEditor, defaultHtmlCode };

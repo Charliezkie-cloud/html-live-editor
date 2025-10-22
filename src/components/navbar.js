@@ -17,14 +17,16 @@ export default class Navbar {
          * @param {string} text 
          * @param {string} href 
          * @param {boolean} isMobile 
+         * @param {boolean} isNewTab 
          * @returns
          */
-        const newEl = (tag, cls, text, href, isMobile) => {
+        const newEl = (tag, cls, text, href, isMobile, isNewTab) => {
             const el = document.createElement(tag);
             if (cls) el.className = cls;
             if (text) el.innerHTML = text;
             if (href) el.href = href;
-            if (isMobile) el.setAttribute("x-on:click", "isOffcanvasOpen = !isOffcanvasOpen")
+            if (isMobile) el.setAttribute("x-on:click", "isOffcanvasOpen = !isOffcanvasOpen");
+            if (isNewTab) el.setAttribute("target", "_blank");
             return el;
         }
 
@@ -68,12 +70,12 @@ export default class Navbar {
         const linksContainerMobile = this.parentEl.querySelector(".navbarLinksMobile");
         for (const link of this.links) {
             const li = newEl("li");
-            const a = newEl("a", "text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 active:text-green-700/50 dark:active:text-green-500/50 focus:underline focus:underline-offset-4", link.title, link.href);
+            const a = newEl("a", "text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 active:text-green-700/50 dark:active:text-green-500/50 focus:underline focus:underline-offset-4", link.title, link.href, null, true);
             li.appendChild(a);
             linksContainer.appendChild(li);
 
             const liMobile = newEl("li");
-            const aMobile = newEl("a", "text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 active:text-green-700/50 dark:active:text-green-500/50 focus:underline focus:underline-offset-4", link.title, link.href, true);
+            const aMobile = newEl("a", "text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 active:text-green-700/50 dark:active:text-green-500/50 focus:underline focus:underline-offset-4", link.title, link.href, true, true);
             liMobile.appendChild(aMobile);
             linksContainerMobile.appendChild(liMobile);
         }
