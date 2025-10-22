@@ -26,9 +26,9 @@ export default class HtmlEditor {
                     <i class="fa-solid fa-rotate-right"></i> Reset
                 </button>
             </div>
-            <div class="grid grid-cols-2 h-full">
-                <div class="h-full w-full htmlEditor"></div>
-                <iframe class="h-full w-full htmlEditorOutput" sandbox="allow-same-origin allow-forms allow-scripts"></iframe>
+            <div class="grid md:grid-cols-2 h-full">
+            <div class="h-full w-full htmlEditor"></div>
+                <iframe class="h-full w-full htmlEditorOutput border-t-2 md:border-s-2 border-gray-300 dark:border-stone-700" sandbox="allow-same-origin allow-forms allow-scripts"></iframe>
             </div>
         </section>`;
 
